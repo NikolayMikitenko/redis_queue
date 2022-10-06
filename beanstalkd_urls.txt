@@ -1,0 +1,3 @@
+http://localhost/set_queue_beanstalkd POST
+http://localhost/set_queue_beanstalkd POST
+http://localhost/get_queue_beanstalkd

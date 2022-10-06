@@ -1,0 +1,3 @@
+http://localhost/set_queue_redis_aof POST
+http://localhost/set_queue_redis_aof POST
+http://localhost/get_queue_redis_aof

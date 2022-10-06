@@ -1,0 +1,31 @@
+version: '3.6'
+services:
+
+  redis_rdb:
+    image: redis:latest
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+    - ./redis_rdb/redis.conf:/usr/local/etc/redis/redis.conf
+    ports:
+      - "6379:6379"
+
+  redis_aof:
+    image: redis:latest
+    command: redis-server /usr/local/etc/redis/redis.conf
+    volumes:
+    - ./redis_aof/redis.conf:/usr/local/etc/redis/redis.conf    
+    ports:
+      - "6380:6380"
+
+  beanstalkd:
+    image: schickling/beanstalkd 
+    #command: beanstalkd -b ~/beanstore &
+    ports:
+      - "11300:11300"      
+
+  api:
+    build:
+      context: app
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
